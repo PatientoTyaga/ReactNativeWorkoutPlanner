@@ -11,6 +11,11 @@ import logout from "../assets/icons/logout.png";
 import eyeHide from "../assets/icons/eye-hide.png";
 import eye from "../assets/icons/eye.png";
 import play from "../assets/icons/play.png";
+import completed from "../assets/icons/completed.png";
+import todaysworkout from "../assets/icons/todaysworkout.png"
+import randomize from "../assets/icons/randomize.png"
+import custom from "../assets/icons/custom.png"
+
 
 export default {
   play,
@@ -26,4 +31,8 @@ export default {
   logout,
   eyeHide,
   eye,
+  todaysworkout,
+  custom,
+  randomize,
+  completed,
 };
