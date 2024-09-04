@@ -5,7 +5,7 @@ import { Link } from 'expo-router';
 export default function App() {
   return (
     <View className="flex-1 items-center justify-center bg-white">
-      <Text className="text-4xl">WorkoutPlanner</Text>
+      <Text className="text-4xl font-pblack">WorkoutPlanner</Text>
       <StatusBar style="auto" />
       <Link href="/TodaysWorkout" style={{ color: 'blue' }}>Today's Workout</Link>
     </View>
