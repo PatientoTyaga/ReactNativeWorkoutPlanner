@@ -7,7 +7,7 @@ export default function App() {
     <View className="flex-1 items-center justify-center bg-white">
       <Text className="text-4xl font-pblack">WorkoutPlanner</Text>
       <StatusBar style="auto" />
-      <Link href="/TodaysWorkout" style={{ color: 'blue' }}>Today's Workout</Link>
+      <Link href="/home" style={{ color: 'blue' }}>Home</Link>
     </View>
   );
 }
