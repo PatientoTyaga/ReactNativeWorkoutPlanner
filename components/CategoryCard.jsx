@@ -1,5 +1,6 @@
-import { View, Text, TouchableOpacity } from 'react-native'
-import React from 'react'
+import { View, Text, TouchableOpacity, Image } from 'react-native'
+import React, { useState } from 'react'
+import AddButton from './AddButton'
 
 const CategoryCard = ({category, exercises, imageSource}) => {
 
@@ -19,7 +20,7 @@ const CategoryCard = ({category, exercises, imageSource}) => {
 
                 <Text className='text-lg text-white'>{category}</Text>
 
-                //add button for expansion added here
+                <AddButton isExpanded={isExpanded} />
 
             </View>
 
