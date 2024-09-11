@@ -4,6 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 
 import { images } from '../../constants'
 import ExerciseCalendar from '../../components/ExerciseCalendar'
+import CompletedWorkouts from '../../components/CompletedWorkouts'
 
 const Home = () => {
 
@@ -59,7 +60,17 @@ const Home = () => {
                 </Text>
               </View>
             </View>
+
+            <View className= 'w-full flex-1 pt-5 pb-8'>
+              <Text className='text-gray-100 text-lg font-pregular mb-3'>Completed Workouts</Text>
+
+              <CompletedWorkouts workouts={ [ {id: 1}, {id: 2}, {id:3} ?? []]}/>
+            </View>
           </View>
+        )}
+
+        ListEmptyComponent={() => (
+          <Text>Empty</Text>
         )}
       />
     </SafeAreaView>
