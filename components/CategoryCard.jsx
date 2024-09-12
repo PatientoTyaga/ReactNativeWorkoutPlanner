@@ -16,7 +16,7 @@ const CategoryCard = ({category, exercises, imageSource}) => {
     <View className='mb-4 bg-gray-800 rounded-lg'>
         <TouchableOpacity onPress={toggleExpand}>
             <View className='flex-row items-center p-4'>
-                <Image source={imageSource} className='w-12 h-12 mr-4' />
+                <Image source={imageSource} className='w-20 h-20 mr-6' />
 
                 <Text className='text-lg text-white'>{category}</Text>
 
