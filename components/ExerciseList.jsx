@@ -23,8 +23,9 @@ const ExerciseList = ({ exercises}) => {
 
           {/* Reps Input */}
           <TextInput
-            className="text-sm text-gray-300 bg-gray-600 rounded p-2"
+            className="text-sm text-gray-200 bg-gray-600 rounded p-2 mt-4"
             placeholder="Reps"
+            placeholderTextColor="#b0b0b0"
             keyboardType="numeric"
             value={userInputs[exercise.$id]?.reps || ''} // Access the reps specific to this exercise
             onChangeText={value => handleInputChange(exercise.$id, 'reps', value)} // Update only the reps for this exercise
@@ -32,8 +33,9 @@ const ExerciseList = ({ exercises}) => {
 
           {/* Sets Input */}
           <TextInput
-            className="text-sm text-gray-300 bg-gray-600 rounded p-2"
+            className="text-sm text-gray-200 bg-gray-600 rounded p-2 mt-4"
             placeholder="Sets"
+            placeholderTextColor="#b0b0b0"
             keyboardType="numeric"
             value={userInputs[exercise.$id]?.sets || ''} // Access the sets specific to this exercise
             onChangeText={value => handleInputChange(exercise.$id, 'sets', value)} // Update only the sets for this exercise
@@ -41,8 +43,9 @@ const ExerciseList = ({ exercises}) => {
 
           {/* Rest Time Input */}
           <TextInput
-            className="text-sm text-gray-300 bg-gray-600 rounded p-2"
+            className="text-sm text-gray-200 bg-gray-600 rounded p-2 mt-4"
             placeholder="Rest Time (in seconds)"
+            placeholderTextColor="#b0b0b0"
             keyboardType="numeric"
             value={userInputs[exercise.$id]?.restTime || ''} // Access the restTime specific to this exercise
             onChangeText={value => handleInputChange(exercise.$id, 'restTime', value)} // Update only the restTime for this exercise

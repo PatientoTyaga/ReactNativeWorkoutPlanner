@@ -1,8 +1,8 @@
 import { View, Text, ScrollView } from 'react-native';
 import React, { useState, useEffect } from 'react';
-import CategoryCard from '../../components/CategoryCard';
 import { images } from '../../constants';
 import { fetchExercises } from '../../lib/appwrite';
+import MainCategoryCard from '../../components/MainCategoryCard';
 
 
 const Custom = () => {
@@ -16,27 +16,34 @@ const Custom = () => {
         const exercises = await fetchExercises();
         
         // Group exercises by category and muscle group
-        const categories = exercises.reduce((acc, exercise) => {
+        const mainCategories = exercises.reduce((acc, exercise) => {
           const { category, muscleGroup, name, $id } = exercise;
 
+          if(!acc[category]) {
+            acc[category] = {
+              category,
+              subcategories: {},
+              imageSource: images[category.toLowerCase()],
+            };
+          }
+
           // Combine category and muscle group as the key, e.g., 'Chest (inner)'
-          const fullCategory = `${category} (${muscleGroup})`;
+          const subcategory = `${category} (${muscleGroup})`;
 
           // Check if the category already exists
-          if (!acc[fullCategory]) {
-            acc[fullCategory] = {
-              category: fullCategory,
+          if (!acc[category].subcategories[subcategory]) {
+            acc[category].subcategories[subcategory] = {
+              subcategory,
               exercises: [],
-              imageSource: images[category.toLowerCase()] // Map image to category
             };
           }
 
           // Add the exercise to the correct category
-          acc[fullCategory].exercises.push({ $id, name });
+          acc[category].subcategories[subcategory].exercises.push({ $id, name, muscleGroup});
           return acc;
         }, {});
 
-        setWorkoutCategories(Object.values(categories)); // Update the state with the grouped categories
+        setWorkoutCategories(Object.values(mainCategories)); // Update the state with the grouped categories
 
       } catch (error) {
         setError('Failed to load exercises'); // Handle any errors that occur
@@ -54,12 +61,12 @@ const Custom = () => {
   return (
     <ScrollView className='bg-primary'>
       <View className='p-4'>
-        {workoutCategories.map((categoryData, index) => (
-          <CategoryCard 
+        {workoutCategories.map((mainCategoryData, index) => (
+          <MainCategoryCard 
             key={index}
-            category={categoryData.category}
-            exercises={categoryData.exercises}
-            imageSource={categoryData.imageSource}
+            category={mainCategoryData.category}
+            subcategories={mainCategoryData.subcategories}
+            imageSource={mainCategoryData.imageSource}
           />
         ))}
       </View>

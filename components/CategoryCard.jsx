@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, Image, Alert } from 'react-native'
+import { View, Text, TouchableOpacity, Image } from 'react-native'
 import React, { useState } from 'react'
 import AddButton from './AddButton'
 import ExerciseList from './ExerciseList'
@@ -10,7 +10,6 @@ const CategoryCard = ({category, exercises, imageSource}) => {
 
   //this will expand to show list of exercises
   const toggleExpand = () => {
-    console.log(exercises)
     setIsExpanded(!isExpanded)
   }
 
